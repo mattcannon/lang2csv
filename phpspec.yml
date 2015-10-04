@@ -1,0 +1,4 @@
+suites:
+  default:
+    namespace: MattCannon\Lang2Csv
+    psr4_prefix: MattCannon\Lang2Csv

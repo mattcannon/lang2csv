@@ -1,0 +1,40 @@
+{
+    "name": "matt-cannon/lang2csv",
+    "description": "imports and exports laravel localisations to and from csv files.",
+    "type": "command",
+    "keywords": [],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Matt Cannon",
+            "email": "matt@mattcannon.uk",
+            "homepage": "https://github.com/acfatah",
+            "role": "developer"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.3",
+        "illuminate/support": "^5.1"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~4.7",
+        "phpunit/php-code-coverage": "~2.1",
+        "phpunit/phpunit-mock-objects": "~2.3",
+        "phpunit/phpunit-selenium": "~1.4",
+        "squizlabs/php_codesniffer": "~2.3",
+        "satooshi/php-coveralls": "dev-master",
+        "behat/behat": "~2.5",
+        "phpspec/phpspec": "~2.0"
+    },
+    "config": {
+        "bin-dir": "bin/"
+    },
+    "autoload": {
+        "psr-4": {
+            "MattCannon\\Lang2Csv\\": "src/"
+        }
+    },
+    "scripts": {
+        "test" : ["behat --ansi"]
+    }
+}

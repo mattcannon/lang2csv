@@ -36,6 +36,9 @@
         }
     },
     "scripts": {
-        "test" : ["behat --ansi"]
+        "test" : [
+            "behat --ansi",
+            "phpspec run --ansi"
+        ]
     }
 }

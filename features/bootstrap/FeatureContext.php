@@ -110,7 +110,7 @@ lang_file_1.array1.b,test2
      */
     public function iImportWithTheLanguageCode($filename, $languageCode)
     {
-        $importer = Importer::withBaseDirectory(getcwd()."/tests/lang/");
+        $importer = Importer::withBaseDirectory(getcwd()."/tests/lang/export/");
         $importer->fromCsvWithLanguageCode($filename,$languageCode);
     }
 

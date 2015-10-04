@@ -23,7 +23,7 @@ class Importer
 
     public function fromCsvWithLanguageCode($filename, $languageCode)
     {
-        $reader = Reader::createFromPath($this->baseDirectory.'/export/'.$filename);
+        $reader = Reader::createFromPath($this->baseDirectory.$filename);
         $rows = [];
         foreach($reader as $item){
             if(sizeof($item)>1) {

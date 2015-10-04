@@ -128,7 +128,7 @@ lang_file_1.array1.b,test2
     public function iShouldHaveFilesInTheDirectory($count, $directoryName)
     {
         $files = glob(getcwd()."/tests/lang/".$directoryName."/*.php");
-        PHPUnit_Framework_Assert::assertCount($count,$files);
+        PHPUnit_Framework_Assert::assertCount(intval($count),$files);
     }
 
 

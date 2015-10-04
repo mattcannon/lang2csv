@@ -24,3 +24,5 @@ nbproject
 
 # windows thumbnail cache
 Thumbs.db
+
+tests/lang/export/en_export.csv

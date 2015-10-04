@@ -7,10 +7,7 @@ use Prophecy\Argument;
 
 class ExporterSpec extends ObjectBehavior
 {
-    /*
-     * $exporter = new \MattCannon\Lang2Csv\Exporter::withBaseDirectory($this->basePath);
-     * $exporter->exportLanguageTo($languageDirectory,$exportDirectory);
-     */
+
     function let()
     {
         $this->beConstructedThrough('withBaseDirectory', ['tests/lang/']);
@@ -21,8 +18,33 @@ class ExporterSpec extends ObjectBehavior
         $this->shouldHaveType('MattCannon\Lang2Csv\Exporter');
     }
 
+    function it_can_get_values_from_files()
+    {
+        $this->getValuesFromFiles("en");
+    }
+
     function it_can_export_a_language_directory()
     {
         $this->exportLanguageTo('en', 'exports/');
+    }
+
+    function it_can_return_the_expected_filepath_for_an_exported_file()
+    {
+        $this->getDestinationPathForCsv('test/lang/exports', 'en');
+    }
+
+    function it_can_write_to_csv()
+    {
+        $rows = [
+            ['lang_file_0.string1', 'a'],
+            ['lang_file_0.string2', 'b'],
+            ['lang_file_0.array1.a', 'test'],
+            ['lang_file_0.array1.b', 'test2'],
+            ['lang_file_1.string1', 'a'],
+            ['lang_file_1.string2', 'b'],
+            ['lang_file_1.array1.a', 'test'],
+            ['lang_file_1.array1.b', 'test2'],
+        ];
+        $this->writeToCsv($rows, getcwd().'/tests/lang/export/en_export.csv');
     }
 }

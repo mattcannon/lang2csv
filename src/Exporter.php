@@ -29,7 +29,7 @@ class Exporter
             $rows[] = [$key,$value];
         }
         $destinationPath = $this->getDestinationPathForCsv($destination, $language);
-//        $this->writeToCsv($translations, $destinationPath);
+        $this->writeToCsv($translations, $this->baseDirectory.$destinationPath);
         
     }
 

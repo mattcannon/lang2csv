@@ -25,12 +25,12 @@ class ExporterSpec extends ObjectBehavior
 
     function it_can_export_a_language_directory()
     {
-        $this->exportLanguageTo('en', 'exports/');
+        $this->exportLanguageTo('en', 'export/');
     }
 
     function it_can_return_the_expected_filepath_for_an_exported_file()
     {
-        $this->getDestinationPathForCsv('test/lang/exports', 'en');
+        $this->getDestinationPathForCsv('test/lang/export', 'en');
     }
 
     function it_can_write_to_csv()

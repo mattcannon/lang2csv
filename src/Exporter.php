@@ -66,7 +66,8 @@ class Exporter
      */
     public function getDestinationPathForCsv($destination, $language)
     {
-        return getcwd().'/'.$this->baseDirectory.$destination.'/'.$language.'_export.csv';
+        
+        return $this->baseDirectory.$destination.'/'.$language.'_export.csv';
     }
 
     /**
@@ -87,7 +88,11 @@ class Exporter
     {
         $translations = $this->getValuesFromFiles($language);
         $translations = array_dot($translations);
-        return $translations;
+        $rows = [];
+        foreach($translations as $k=>$v){
+            $rows[] = [$k,$v];
+        }
+        return $rows;
     }
 
     /**

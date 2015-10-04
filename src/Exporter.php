@@ -43,7 +43,10 @@ class Exporter
     {
         $translations = $this->getFlattenedTranslationsForLanguage($language);
         $destinationPath = $this->getDestinationPathForCsv($destination, $language);
-        $this->writeToCsv($translations, $this->baseDirectory.$destinationPath);
+        if(!file_exists(dirname($destinationPath))){
+            mkdir(dirname($destinationPath));
+        }
+        $this->writeToCsv($translations, $destinationPath);
         
     }
 
@@ -63,7 +66,7 @@ class Exporter
      */
     public function getDestinationPathForCsv($destination, $language)
     {
-        return $destination.'/'.$language.'_export.csv';
+        return getcwd().'/'.$this->baseDirectory.$destination.'/'.$language.'_export.csv';
     }
 
     /**

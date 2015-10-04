@@ -26,4 +26,7 @@ nbproject
 # windows thumbnail cache
 Thumbs.db
 
-tests/lang/export/en_export.csv
+tests/lang/*
+!tests/lang/export
+tests/lang/export/*
+!tests/lang/export/.gitkeep

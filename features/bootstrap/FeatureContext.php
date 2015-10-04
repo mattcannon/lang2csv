@@ -89,12 +89,16 @@ class FeatureContext extends BehatContext
         $fullPath = $this->basePath . $directoryName . '/';
         return $fullPath;
     }
+
     /**
      * @Given /^there is a csv called "([^"]*)" in "([^"]*)"$/
      */
     public function thereIsACsvCalledIn($filename, $directory)
     {
-        file_put_contents(getcwd()."/".$directory."/".$filename,"lang_file_0.string1,a
+        if (!file_exists(getcwd() . "/" . $directory . "/")) {
+            mkdir(getcwd() . "/" . $directory . "/");
+        }
+        file_put_contents(getcwd() . "/" . $directory . "/" . $filename, "lang_file_0.string1,a
 lang_file_0.string2,b
 lang_file_0.array1.a,test
 lang_file_0.array1.b,test2
@@ -110,8 +114,8 @@ lang_file_1.array1.b,test2
      */
     public function iImportWithTheLanguageCode($filename, $languageCode)
     {
-        $importer = Importer::withBaseDirectory(getcwd()."/tests/lang/export/");
-        $importer->fromCsvWithLanguageCode($filename,$languageCode);
+        $importer = Importer::withBaseDirectory(getcwd() . "/tests/lang/");
+        $importer->fromCsvWithLanguageCode("export/" . $filename, $languageCode);
     }
 
     /**
@@ -119,7 +123,7 @@ lang_file_1.array1.b,test2
      */
     public function iShouldHaveAnDirectory($directoryName)
     {
-        PHPUnit_Framework_Assert::assertTrue(file_exists(getcwd()."/tests/lang/".$directoryName));
+        PHPUnit_Framework_Assert::assertTrue(file_exists(getcwd() . "/tests/lang/" . $directoryName));
     }
 
     /**
@@ -127,8 +131,8 @@ lang_file_1.array1.b,test2
      */
     public function iShouldHaveFilesInTheDirectory($count, $directoryName)
     {
-        $files = glob(getcwd()."/tests/lang/".$directoryName."/*.php");
-        PHPUnit_Framework_Assert::assertCount(intval($count),$files);
+        $files = glob(getcwd() . "/tests/lang/" . $directoryName . "/*.php");
+        PHPUnit_Framework_Assert::assertCount(intval($count), $files);
     }
 
 

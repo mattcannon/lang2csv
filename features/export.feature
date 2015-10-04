@@ -5,7 +5,7 @@ Feature: Export Languages to CSV
     Given there is a directory called "en"
     And "en" contains 2 example language files
     When I export "en" to "exports"
-    Then I should have a CSV file called "en_export.csv" in the "exports" directory
+    Then I should have a CSV file called "en_export.csv" in the "export" directory
     
    
   
